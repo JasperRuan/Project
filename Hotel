@@ -1,4 +1,5 @@
 Equal = 1
+print('Hi there')
 print('Do you want to book a hotel room?')
 choose = int(input('1.Yes  2.No\n'))
 while choose == 2:

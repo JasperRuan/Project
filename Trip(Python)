@@ -1,4 +1,5 @@
-print('Hi,Looks like you are in school holiday now, do you want to go for a trip?')
+print('Hi there')
+print('Looks like you are in school holiday now, do you want to go for a trip?')
 choose = int(input('1.Yes  2.No\n'))
 if choose == 2:
     print("You sure you don't want to plan your trip?")
