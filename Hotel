@@ -1,0 +1,74 @@
+Equal = 1
+print('Do you want to book a hotel room?')
+choose = int(input('1.Yes  2.No\n'))
+while choose == 2:
+    print('Do you want to quit the programme?')
+    a = int(input('1.Yes  2.No\n'))
+    if a == 1:
+        break
+    print('Do you want to book a hotel room?')
+    choose = int(input('1.Yes  2.No\n'))
+
+if choose == 1:
+    print('\nI think we only have rooms in The Ocean Hotel')
+
+while 1:
+    print('Please enter the number to know the detail about the room')
+    room = int(input('\n1.Premium Luxury Room\n2.Harbour View Room\n3.Luxury King Suit\n'))
+    if room == 1:
+        print('\nThe Preium Luxury Room includes: 1 King size bed, 1 Bathroom')
+    if room == 2:
+        print('\nThe harbour View Room includes: 2 King size bed, 2 Bathrooms')
+    if room == 3:
+        print('\nThe Luxury King Suit includes: 2 King size bed and 1 Queen size bed, 2 Bathrooms and 1 Meeting room')
+    print('Do you want to know about the other rooms?')
+    Equal = int(input('1.Yes  2.No\n'))
+    if Equal == 2:
+        break
+while Equal == 2:
+    First = input('\nPlease Enter your First Name: ')
+    Last = input('Please Enter your Last Name: ')
+    print('\nPlease Enter the Check In date')
+    YearIn = input('Year: ')
+    MonthIn = input('Month: ')
+    DateIn = int(input('Date: '))
+    print('Please Enter the Check Out date')
+    YearOut = input('Year: ')
+    MonthOut = input('Month: ')
+    DateOut = int(input("Date: "))
+    print('\nThe check in date is',DateIn,'/',MonthIn,'/',YearIn)
+    print('The check out date is ',DateOut,'/',MonthOut,'/',YearOut)
+    print('You are staying for',DateOut - DateIn,'nights\n')
+    a = int(input('1.Confirmed  2.Write again\n'))
+    if a == 1:
+        break
+print('\nHi,',First,Last,', Plase enter the type of room you want')
+room = int(input('1.Premium Luxury Room\n2.Harbour View Room\n3.Luxury King Suit\n'))
+if room == 1:
+    print('Great, you chose The Premium Luxury Room')
+    phone = input('Enter your phone number: ')
+    E = input('Enter your E-mail address: ')
+    print('\nYour phone number is:',phone)
+    print('your E-mail is:',E)
+    print('We will arrange your booking shortly')
+if room == 2:
+    print('Great, you chose The Harbour View Room')
+    phone = input('Enter your phone number: ')
+    E = input('Enter your E-mail address: ')
+    print('\nYour phone number is:', phone)
+    print('your E-mail is:', E)
+    print('We will arrange your booking shortly')
+if room == 3:
+    print('Great, you chose The Luxury king Suit')
+    phone = input('Enter your phone number: ')
+    E = input('Enter your E-mail address: ')
+    print('\nYour phone number is:', phone)
+    print('your E-mail is:', E)
+    print('We will arrange your booking shortly')
+
+
+
+
+
+print("Thank you for your time\n")
+a = input('Press Enter to quit the programme')
