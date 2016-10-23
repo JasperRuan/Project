@@ -1,0 +1,39 @@
+print('Hi,Looks like you are in school holiday now, do you want to go for a trip?')
+choose = int(input('1.Yes  2.No\n'))
+if choose == 2:
+    print("You sure you don't want to plan your trip?")
+    choose = int(input('1.Plan the trip  2.Quit the programme\n'))
+
+
+while choose == 1:
+    print("\nLet's plan your trip now!\n")
+    First = input('Enter your first name\n')
+    Last = input('Enter your last name\n')
+    place = input('\nEnter the place you want to go\n')
+    year = input ('\nEnter the Year: ')
+    month = input ('Enter the Month: ')
+    date = input ('Enter the Date: ')
+    print('\nOk, just to double check, you are going to',place, 'on',date,'/',month,'/',year,'\n')
+    choose = int(input('Confirm, enter 3.  Write again, enter 1\n  '))
+while choose == 3:
+    LeavingPlace = input('\nEnter the city you are leaving from\n')
+    Transport = input('Enter the transport you want to use\n')
+    print('\nYou are going to',place,'from',LeavingPlace,'by',Transport,'\n')
+    choose = int(input('Confirm, enter 4  Write again, enter 3\n'))
+while choose == 4:
+    number = input('\nEnter your phone number\n')
+    E = input('\nEnter your email address\n')
+    print ('\nYour phone number is:',number)
+    print('Your E-mail is:',E)
+    choose = int(input('\nConfirm, enter 5  Write again, enter 4\n'))
+
+while choose ==5:
+    print('\nCongradulations,', First, ', we will arrange your trip shortly, your detial is at below\n')
+    print('Name:', First, Last)
+    print('Phone Number:', number)
+    print('E-mail:', E)
+    print('\nGoing to', place, 'from', LeavingPlace, 'on', date, '/', month, '/', year)
+    break
+End = input('\nThank you for your time, please press enter to quit')
+
+print('Thank you for your time\n')
