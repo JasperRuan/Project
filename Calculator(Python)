@@ -1,0 +1,30 @@
+# This is a calculator programme
+
+def calculate(a,symbol,b): #four kinds of symbols
+    if symbol == '+':
+        answer = a + b
+    if symbol == '-':
+        answer = a - b
+    if symbol == '*':
+        answer = a * b
+    if symbol == '/':
+        answer = a / b
+    return answer
+
+a, symbol, b = int(input('Enter a number:')), input('Symbol:'), int(input('Enter a number:'))
+print('Answer:',calculate(a,symbol,b))
+
+list = [calculate(a,symbol,b)]  #create a list to store the answers that the users are getting
+
+go = 1
+i = 0
+while go == 1:
+    a = list[i]     #get the number from the list
+    i += 1          #get the next number from the list next time
+    symbol = input('Symbol:')
+    b = int(input("Enter a number:"))
+    print('Answer:', calculate(a, symbol, b))
+    list += [calculate(a,symbol,b)]     #save the answer in the list
+
+#Thank you for reading this, if you have any advises, email me at xiaoyiruan@qq.com
+
