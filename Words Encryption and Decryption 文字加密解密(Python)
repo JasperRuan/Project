@@ -1,0 +1,98 @@
+import random
+
+def create_letter_index_dict(letter_list):
+    letter_to_number = {}
+    number_to_letter = {}
+    for i in range(len(letter_list)):
+        letter_to_number[letter_list[i]] = str(i)
+        number_to_letter[str(i)] = letter_list[i]
+    return letter_to_number, number_to_letter
+# Create two dictionaries contain matching index number and letters/symbols to be replaced
+
+def ask_mode():
+    print('1.Encrypt  2.Decrypt')
+    mode = int(input('Mode: '))
+    return mode
+# Ask the user to choose the mode
+
+def get_words():
+    words = input('Enter the words: ')
+    words = list(words)
+    return words
+# Take users input and transfer it to a list of each letter of users input.
+
+def create_random_number(lenth):
+    index_to_random_number_dict = {}
+    list_random_num = []
+    file_out = open('password.txt', 'w')
+    for i in range(lenth):
+        num = str(random.randrange(lenth))
+        while num in list_random_num:
+            num = str(random.randrange(lenth))
+        index_to_random_number_dict[str(i)] = num
+        file_out.write(num + '\n')
+        list_random_num.append(num)
+    file_out.close()
+    return index_to_random_number_dict
+# create a dictionary stores index number as keys and a matching random number as values
+# write the random number into a txt file for decryption
+
+def get_encrypted_words(words_original, index_to_random_number_dict, letter_list, letter_to_number_dict, number_to_letter_dict):
+    encrypted_words = ''
+    for letter in words_original:
+        if letter not in letter_list:
+            encrypted_letter = letter # if the letter is not on the list, pass
+        else:
+            index = letter_to_number_dict[letter] # get the index number of the letter
+            new_index = index_to_random_number_dict[index] # get the matching random number for the index number
+            encrypted_letter = number_to_letter_dict[new_index] # get the new letter
+        encrypted_words += encrypted_letter
+    return encrypted_words
+
+def print_encrypted_words(encrypted_words):
+    print('\nEncrypted words: |' + encrypted_words + '|')
+
+def get_password():
+    file_in = open('password.txt', 'r')
+    content = file_in.read().split()
+    file_in.close()
+    return content
+# read the password form txt file and split it into a list of numbers(index)
+
+def create_random_to_index_dict(password):
+    random_number_to_index_dict = {}
+    for i in range(len(password)):
+        random_number_to_index_dict[password[i]] = str(i)
+    return random_number_to_index_dict
+# create a dictionary,the key is each number in password list and the value is index number
+
+def get_decrypted_words(words_to_be_decrypt, random_number_to_index_dict, letter_to_number_dict, number_to_letter_dict):
+    decrypted_words = ''
+    for letter in words_to_be_decrypt:
+        letter_index = letter_to_number_dict[letter] # get the index number of that letter
+        decrypted_index = random_number_to_index_dict[letter_index] # find the ture index number of that number
+        decrypted_letter = number_to_letter_dict[decrypted_index] # find the decrypted letter
+        decrypted_words += decrypted_letter
+    return decrypted_words
+def print_decrypted_words(decrypted_words):
+    print('\nDecrypted words: |' + decrypted_words + '|')
+
+letter_list = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',',','.','?','!','@','(',')',':',"'",'"',' ','1','2','3','4','5','6','7','8','9','0','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+letter_to_number_dict, number_to_letter_dict = create_letter_index_dict(letter_list)
+
+mode = ask_mode()
+while mode != 1 and mode != 2:
+    print('Please enter 1 or 2')
+    mode = ask_mode()
+if mode == 1:
+    words_original = get_words()
+    index_to_random_number_dict = create_random_number(len(letter_to_number_dict))
+    encrypted_words = get_encrypted_words(words_original, index_to_random_number_dict, letter_list, letter_to_number_dict, number_to_letter_dict)
+    print_encrypted_words(encrypted_words)
+else:
+    password = get_password()
+    random_number_to_index_dict = create_random_to_index_dict(password)
+    words_to_be_decrypt = get_words()
+    decrypted_words = get_decrypted_words(words_to_be_decrypt, random_number_to_index_dict, letter_to_number_dict, number_to_letter_dict)
+    print_decrypted_words(decrypted_words)
+print('\nThank you')
